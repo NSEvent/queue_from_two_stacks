@@ -10,12 +10,12 @@ class MyQueue {
 public:
 	MyQueue() {}
 
-	// O(1) enqueue
+	// O(1) push 
 	void push(T val) {
 		s1.push(val);
 	}
 
-	// O(n) dequeue
+	// O(n) pop
 	T pop() {
 		if (s2.empty()) {
 			// move everything from s1 to s2
@@ -24,6 +24,7 @@ public:
 				s1.pop();
 			}
 		}
+		// top element in s2 is the return val
 		T res = s2.top();
 		s2.pop();
 		return res;
